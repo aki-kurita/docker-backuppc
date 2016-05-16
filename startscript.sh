@@ -29,14 +29,13 @@ else
   mkdir -p $PERSISTENT_DATA/pool
   mkdir -p $PERSISTENT_DATA/.ssh
   mkdir -p $PERSISTENT_DATA/trash
-  ssh-keygen -N '' -f $PERSISTENT_DATA/.ssh/id_rsa
 fi
 
 # Set proper permissions
 echo "Setting permissions"
 #chown -R backuppc:www-data $PERSISTENT_CONFIG
 #chown -R backuppc:backuppc $PERSISTENT_DATA
-chmod -R 0600 $PERSISTENT_DATA/.ssh/*
+#chmod -R 0600 $PERSISTENT_DATA/.ssh/*
 
 # Start supervisord
 echo "Starting supervisord"
