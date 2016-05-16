@@ -11,6 +11,8 @@ if [[ ! "$(ls -A $PERSISTENT_CONFIG)" ]]; then
   echo "Importing configuration from package management"
   mv -Z $TMP_CONFIG/* $PERSISTENT_CONFIG
   rm -rf $TMP_CONFIG
+else
+  cp $TMP_CONFIG/* $PERSISTENT_CONFIG
 fi
 
 # Use directroy structure from package management if we dont have any
@@ -20,13 +22,16 @@ if [[ ! "$(ls -A $PERSISTENT_DATA)" ]]; then
   rm -rf $TMP_DATA
   echo "Creating a ssh keypair"
   ssh-keygen -N '' -f $PERSISTENT_DATA/.ssh/id_rsa
+else
+  cp $TMP_DATA/* $PERSISTENT_DATA
+  ssh-keygen -N '' -f $PERSISTENT_DATA/.ssh/id_rsa
 fi
 
 # Set proper permissions
 echo "Setting permissions"
 #chown -R backuppc:www-data $PERSISTENT_CONFIG
 #chown -R backuppc:backuppc $PERSISTENT_DATA
-#chmod -R 0600 $PERSISTENT_DATA/.ssh/*
+chmod -R 0600 $PERSISTENT_DATA/.ssh/*
 
 # Start supervisord
 echo "Starting supervisord"
