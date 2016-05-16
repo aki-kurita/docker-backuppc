@@ -23,7 +23,12 @@ if [[ ! "$(ls -A $PERSISTENT_DATA)" ]]; then
   echo "Creating a ssh keypair"
   ssh-keygen -N '' -f $PERSISTENT_DATA/.ssh/id_rsa
 else
-  rsync -a $TMP_DATA/* $PERSISTENT_DATA
+  mkdir -p $PERSISTENT_DATA/cpool
+  mkdir -p $PERSISTENT_DATA/log
+  mkdir -p $PERSISTENT_DATA/pc
+  mkdir -p $PERSISTENT_DATA/pool
+  mkdir -p $PERSISTENT_DATA/.ssh
+  mkdir -p $PERSISTENT_DATA/trash
   ssh-keygen -N '' -f $PERSISTENT_DATA/.ssh/id_rsa
 fi
 
