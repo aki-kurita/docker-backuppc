@@ -12,7 +12,7 @@ if [[ ! "$(ls -A $PERSISTENT_CONFIG)" ]]; then
   mv -Z $TMP_CONFIG/* $PERSISTENT_CONFIG
   rm -rf $TMP_CONFIG
 else
-  rsync -a --exclude $TMP_CONFIG/htpasswd $TMP_CONFIG/* $PERSISTENT_CONFIG
+  rsync -a --exclude htpasswd $TMP_CONFIG/* $PERSISTENT_CONFIG
 fi
 
 # Use directroy structure from package management if we dont have any
