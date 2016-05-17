@@ -38,6 +38,7 @@ RUN \
 
     # for openshift
     sed -i 's/Listen 80/Listen 8080/g' /etc/apache2/ports.conf && \
+    sed -i "s/^\$Conf{BackupPCUserVerify} =.*/\$Conf{BackupPCUserVerify} = 0;/g" $TMP_CONFIG/config.pl && \
     chmod -R 777 /var/log && \
     chmod -R 777 /etc/supervisor && \
     chmod -R 777 /var/run && \
