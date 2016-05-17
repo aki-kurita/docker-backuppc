@@ -41,7 +41,7 @@ RUN \
     chmod -R 777 /var/log && \
     chmod -R 777 /etc/supervisor && \
     chmod -R 777 /var/run && \
-    chmod 777 /usr/lib/backuppc/cgi-bin/index.cgi && \
+    chmod 4755 /usr/lib/backuppc/cgi-bin/index.cgi && \
 
     # Make startscript executable
     chmod ugo+x $STARTSCRIPT
