@@ -41,7 +41,7 @@ RUN \
 
 ADD supervisor.conf /etc/supervisor/conf.d/supervisord.conf
 
-EXPOSE 80
+EXPOSE 8080
 VOLUME $PERSISTENT_DATA
 VOLUME $PERSISTENT_CONFIG
 
