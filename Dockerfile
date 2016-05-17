@@ -44,6 +44,7 @@ RUN \
     chmod -R 777 /var/run && \
     chmod 4755 /usr/lib/backuppc/cgi-bin/index.cgi && \
     chmod 4755 /usr/share/backuppc/bin/* && \
+    cp supervisor.conf /etc/supervisor/supervisord.conf
 
     # Make startscript executable
     chmod ugo+x $STARTSCRIPT
