@@ -38,8 +38,8 @@ RUN \
 
     # for openshift
     sed -i 's/Listen 80/Listen 8080/g' /etc/apache2/ports.conf && \
-    chmod -R 777 /var/log
-    chmod -R 777 /etc/supervisor
+    chmod -R 777 /var/log && \
+    chmod -R 777 /etc/supervisor && \
 
     # Make startscript executable
     chmod ugo+x $STARTSCRIPT
