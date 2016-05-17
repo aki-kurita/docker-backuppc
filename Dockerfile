@@ -36,6 +36,9 @@ RUN \
     # Remove host 'localhost' from package generated config
     sed -i 's/^localhost.*//g' $TMP_CONFIG/hosts && \
 
+    # apache listen port
+    sed -i 's/Listen 80/Listen 8080/g' /etc/apache2/ports.conf \
+
     # Make startscript executable
     chmod ugo+x $STARTSCRIPT
 
