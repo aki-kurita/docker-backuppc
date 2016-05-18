@@ -50,9 +50,9 @@ RUN \
 
 ADD supervisor.conf /etc/supervisor/supervisord.conf
 
+USER 106
 EXPOSE 8080
 VOLUME $PERSISTENT_DATA
 VOLUME $PERSISTENT_CONFIG
 
-USER backuppc
 cmd $STARTSCRIPT 
