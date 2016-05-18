@@ -1,6 +1,5 @@
 FROM debian:jessie
 
-ENV USER 106
 ENV DEBIAN_FRONTEND noninteractive
 ENV TMP_CONFIG /backuppc_initial_config
 ENV TMP_DATA /backuppc_initial_data
@@ -55,4 +54,5 @@ EXPOSE 8080
 VOLUME $PERSISTENT_DATA
 VOLUME $PERSISTENT_CONFIG
 
+USER backuppc
 cmd $STARTSCRIPT 
